@@ -1,0 +1,1 @@
+export { useMultiComplete } from './useMultiComplete'

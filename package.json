@@ -1,0 +1,75 @@
+{
+  "name": "multicomplete",
+  "description": "A headless React hook for creating multiselect autocomplete components.",
+  "version": "0.1.0",
+  "type": "module",
+  "author": "jotoh.dev",
+  "license": "MIT",
+  "repository": "jotoh98/multicomplete",
+  "keywords": [
+    "react",
+    "multicomplete",
+    "autocomplete",
+    "accessibility"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && prettier --check .",
+    "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix && prettier --write .",
+    "preview": "vite preview",
+    "test": "vitest",
+    "size": "size-limit"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^10.0.3",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.0",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "@vitest/coverage-v8": "^0.34.6",
+    "@vitest/ui": "^0.34.6",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "jsdom": "^22.1.0",
+    "prettier": "^3.0.3",
+    "size-limit": "^10.0.3",
+    "tsup": "^7.2.0",
+    "typescript": "^5.0.2",
+    "vitest": "^0.34.6"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "dist/index.cjs",
+      "limit": "2 KB"
+    }
+  ],
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 80
+  }
+}
