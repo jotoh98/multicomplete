@@ -1,7 +1,7 @@
 {
   "name": "multicomplete",
   "description": "A headless React hook for creating multiselect autocomplete components.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "author": "jotoh.dev",
   "license": "MIT",
