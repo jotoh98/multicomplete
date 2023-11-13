@@ -1,7 +1,7 @@
 {
   "name": "multicomplete",
   "description": "A headless React hook for creating multiselect autocomplete components.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "author": "jotoh.dev",
   "license": "MIT",
@@ -26,7 +26,6 @@
     "build": "tsup",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && prettier --check .",
     "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix && prettier --write .",
-    "preview": "vite preview",
     "test": "vitest",
     "size": "size-limit"
   },
@@ -51,6 +50,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "jsdom": "^22.1.0",
     "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.7",
     "size-limit": "^10.0.3",
     "tsup": "^7.2.0",
     "typescript": "^5.0.2",

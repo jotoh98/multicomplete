@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 .animate-delete {
-    animation: select 300ms;
-    animation-delay: 1s;
-    animation-timing-function: steps(1, end);
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation: select 300ms;
+  animation-delay: 1s;
+  animation-timing-function: steps(1, end);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes select {
-    0% {
-        background: transparent;
-    }
-    100% {
-        background: rgb(0, 149, 255);
-        color: white;
-    }
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgb(0, 149, 255);
+    color: white;
+  }
 }

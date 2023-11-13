@@ -1,82 +1,57 @@
-import React, { Dispatch } from 'react'
-import { useMultiComplete } from '../src'
+import { useMultiComplete, UseMultiCompleteOptions } from '../src'
+import { useState } from 'react'
 
-export type ComboboxProps<T> = {
-  values: T[]
-  onChangeValues: Dispatch<T[]>
-  renderItem: (v: T) => string
-  getKey: (v: T) => string
-  options: T[]
-  id: string
-} & Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'role' | 'type' | 'className' | 'id'
->
-
-export const MultiComplete = <T,>({
-  getKey,
-  onChangeValues,
-  renderItem,
-  values,
-  options: allOptions,
-  ...props
-}: ComboboxProps<T>) => {
+type Item = { label: string; value: string }
+export const MultiComplete = (props: UseMultiCompleteOptions<Item>) => {
+  const [isOpen, setIsOpen] = useState(false)
   const {
     options,
-    isExpanded: expanded,
     getWrapperProps,
-    isValueActive,
-    isOptionActive,
+    activeValueIndex,
+    activeOptionIndex,
     getDeleteButtonProps,
     getInputProps,
     getPopoverButtonProps,
     getPopoverProps,
     getOptionProps,
-  } = useMultiComplete<T, HTMLInputElement>({
-    values,
-    getKey,
-    onChangeValues,
-    options: allOptions,
-    renderItem,
+  } = useMultiComplete({
     ...props,
+    isOpen,
+    onOpenChange: setIsOpen,
   })
 
   return (
     <div {...getWrapperProps()} data-testid="wrapper">
-      {values.map((value) => {
-        const isActive = isValueActive(value)
+      {props.values.map((value, index) => {
         return (
           <span
-            key={getKey(value)}
-            data-testid={getKey(value)}
-            data-active={isActive}
+            key={value.value}
+            data-testid={value.value}
+            data-active={activeValueIndex === index}
           >
-            {renderItem(value)}
+            {value.label}
             <button {...getDeleteButtonProps(value)}>×</button>
           </span>
         )
       })}
       <div>
-        <input {...props} {...getInputProps()} />
+        <input {...getInputProps()} />
         <button {...getPopoverButtonProps()} aria-label="Open Popover">
           Open
         </button>
       </div>
-      {expanded && (
+      {isOpen && (
         <div {...getPopoverProps()} data-testid="popover">
           <ul>
-            {options.map((option, optionIndex) => {
-              const isActive = isOptionActive(optionIndex)
-              return (
-                <li
-                  data-active={isActive}
-                  key={getKey(option)}
-                  {...getOptionProps(option, optionIndex)}
-                >
-                  {renderItem(option)}
-                </li>
-              )
-            })}
+            {options.map((option, optionIndex) => (
+              <li
+                key={option.value}
+                {...getOptionProps(option, optionIndex)}
+                data-active={activeOptionIndex === optionIndex}
+              >
+                {option.label}
+              </li>
+            ))}
           </ul>
         </div>
       )}

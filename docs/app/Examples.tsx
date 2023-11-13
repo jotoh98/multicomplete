@@ -22,12 +22,10 @@ export const Examples = () => {
 
   return (
     <MultiCompleteBasic
-      id='basic-example'
+      id="basic-example"
       values={values}
-      onChangeValues={setValues}
+      onChange={setValues}
       options={options}
-      getKey={(v) => v}
-      renderItem={(v) => v}
     />
   )
 }

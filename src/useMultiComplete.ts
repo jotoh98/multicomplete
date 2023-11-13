@@ -2,36 +2,34 @@ import React, {
   useCallback,
   useEffect,
   useLayoutEffect,
-  useMemo,
   useRef,
   useState,
 } from 'react'
+import { UseMultiCompleteOptions } from './UseMultiCompleteOptions.ts'
 
-export type UseMultiCompleteOptions<T, TElement> = {
-  values: T[]
-  options: T[]
-  getKey: (v: T) => string
-  onChangeValues: (value: T[]) => void
-  renderItem: (v: T) => string
-  id: string
-  onChange?: (e: React.ChangeEvent<TElement>) => void
-  onClick?: (e: React.MouseEvent<TElement>) => void
-}
+const createDefaultQueryOptionFilter =
+  <T>() =>
+  (option: T, query: string) =>
+    String(option).toLowerCase().includes(query.toLowerCase())
 
 type HtmlElementWithValue = HTMLElement & { value: string }
 
-export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
-  props: UseMultiCompleteOptions<TValue, TElement>
+export const useMultiComplete = <
+  TValue,
+  TElement extends HtmlElementWithValue = HTMLInputElement,
+>(
+  props: UseMultiCompleteOptions<TValue>
 ) => {
   const {
     values,
-    getKey,
-    onChangeValues,
-    options: allOptions,
-    renderItem,
-    id: htmlId,
     onChange,
-    onClick,
+    options: allOptions,
+    id: htmlId,
+    isEqual = (a, b) => a === b,
+    filterValues = true,
+    queryOptionFilter = createDefaultQueryOptionFilter<TValue>(),
+    isOpen = false,
+    onOpenChange,
   } = props
   const wrapperRef = useRef<HTMLDivElement>(null)
   const popoverRef = useRef<HTMLDivElement>(null)
@@ -40,15 +38,13 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
   const [activeOptionIndex, setActiveOptionIndex] = useState(-1)
   const [query, setQuery] = useState('')
 
-  const valueKeys = useMemo(() => values.map(getKey), [values, getKey])
-
   useEffect(() => {
     const listener = (e: MouseEvent) => {
       if (
         wrapperRef.current !== e.currentTarget &&
         !wrapperRef.current?.contains(e.target as Node)
       ) {
-        setIsExpanded(false)
+        onOpenChange?.(false)
         setQuery('')
       }
       setActiveOptionIndex(-1)
@@ -58,6 +54,7 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
     window.addEventListener('click', listener)
 
     return () => window.removeEventListener('click', listener)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const previousValueActive = () =>
@@ -88,29 +85,27 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
 
   const onDelete = useCallback(
     (item: TValue) => {
-      const filtered = values.filter((v) => getKey(v) !== getKey(item))
-      onChangeValues(filtered)
+      const filtered = values.filter((v) => !isEqual(v, item))
+      onChange(filtered)
     },
-    [values, onChangeValues, getKey]
+    [values, onChange, isEqual]
   )
 
   const onAdd = useCallback(
     (item: TValue) => {
-      const filtered = values.filter((v) => getKey(v) !== getKey(item))
-      onChangeValues([...filtered, item])
+      const filtered = values.filter((v) => !isEqual(v, item))
+      onChange([...filtered, item])
     },
-    [values, onChangeValues, getKey]
+    [values, onChange, isEqual]
   )
 
-  const optionsWithoutValues = allOptions.filter(
-    (o) => !valueKeys.includes(getKey(o))
-  )
+  const optionsWithoutValues = filterValues
+    ? allOptions.filter((o) => !values.find((v) => isEqual(v, o)))
+    : allOptions
 
   const filteredOptions = !query
     ? optionsWithoutValues
-    : optionsWithoutValues.filter((o) =>
-        renderItem(o).toLowerCase().includes(query.toLowerCase())
-      )
+    : optionsWithoutValues.filter((o) => queryOptionFilter(o, query))
 
   const nextOptionActive = () =>
     setActiveOptionIndex((v) => {
@@ -128,8 +123,6 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
       return v < 1 ? filteredOptions.length - 1 : v - 1
     })
   }
-
-  const [isExpanded, setIsExpanded] = useState(false)
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     switch (e.key) {
@@ -154,44 +147,44 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
         }
         break
       case 'ArrowDown':
-        if (!isExpanded) {
-          setIsExpanded(true)
+        if (!isOpen) {
+          onOpenChange?.(true)
         } else {
           nextOptionActive()
         }
         break
       case 'ArrowUp':
-        if (!isExpanded) {
-          setIsExpanded(true)
+        if (!isOpen) {
+          onOpenChange?.(true)
         } else {
           previousOptionActive()
         }
         break
       case 'Enter':
       case 'Space':
-        if (activeOptionIndex > -1 && isExpanded) {
+        if (activeOptionIndex > -1 && isOpen) {
           onAdd(filteredOptions[activeOptionIndex])
-          setIsExpanded(false)
+          onOpenChange?.(false)
           setQuery('')
           setActiveOptionIndex(-1)
         }
         break
       case 'Escape':
-        if (isExpanded) {
+        if (isOpen) {
           e.preventDefault()
           e.stopPropagation()
         }
-        setIsExpanded(false)
+        onOpenChange?.(false)
         break
       case 'Home':
-        if (isExpanded) {
+        if (isOpen) {
           e.preventDefault()
           e.stopPropagation()
         }
         setActiveOptionIndex(0)
         break
       case 'End':
-        if (isExpanded) {
+        if (isOpen) {
           e.preventDefault()
           e.stopPropagation()
         }
@@ -202,7 +195,7 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
 
   const onClickOnWrapper = () => {
     setActiveValueIndex(-1)
-    setIsExpanded((v) => !v)
+    onOpenChange?.(!isOpen)
     inputRef.current?.focus()
   }
 
@@ -212,9 +205,6 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
     onClick: onClickOnWrapper,
   })
 
-  const isValueActive = (value: TValue) => values[activeValueIndex] === value
-  const isOptionActive = (index: number) => activeOptionIndex === index
-
   const getDeleteButtonProps = (value: TValue) => ({
     type: 'button' as const,
     tabIndex: -1,
@@ -223,14 +213,19 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
 
   const popoverId = `${htmlId}-combobox`
 
-  const getInputProps = () => ({
+  const getInputProps = (
+    options?: Partial<{
+      onChange: (e: React.ChangeEvent<TElement>) => void
+      onClick: (e: React.MouseEvent<TElement>) => void
+    }>
+  ) => ({
     value: query,
     ref: inputRef,
     role: 'combobox',
     autoComplete: 'none',
     autoCapitalize: 'none',
     spellCheck: false,
-    'aria-expanded': isExpanded,
+    'aria-expanded': isOpen,
     'aria-autocomplete': 'list' as const,
     'aria-controls': popoverId,
     type: 'text',
@@ -238,15 +233,15 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
       activeOptionIndex >= 0 ? getOptionId(activeOptionIndex) : undefined,
     onClick: (e: React.MouseEvent<TElement>) => {
       setActiveValueIndex(-1)
-      onClick?.(e)
+      options?.onClick?.(e)
     },
     onChange: (e: React.ChangeEvent<TElement>) => {
       if (e.target.value.length > 0) {
-        setIsExpanded(true)
+        onOpenChange?.(true)
       }
       setActiveOptionIndex(-1)
       setQuery(e.target.value)
-      return onChange?.(e)
+      options?.onChange?.(e)
     },
   })
 
@@ -254,7 +249,7 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
     tabIndex: -1,
     type: 'button' as const,
     'aria-controls': popoverId,
-    'aria-expanded': isExpanded,
+    'aria-expanded': isOpen,
   })
 
   const getPopoverProps = () => ({
@@ -274,13 +269,15 @@ export const useMultiComplete = <TValue, TElement extends HtmlElementWithValue>(
       setActiveOptionIndex(optionIndex)
     },
     id: getOptionId(optionIndex),
+    'aria-selected': filterValues
+      ? false
+      : values.find((v) => isEqual(v, option)) !== undefined,
   })
   return {
     options: filteredOptions,
-    isExpanded: isExpanded,
     getWrapperProps,
-    isValueActive,
-    isOptionActive,
+    activeOptionIndex,
+    activeValueIndex,
     getDeleteButtonProps,
     getInputProps,
     getPopoverButtonProps,

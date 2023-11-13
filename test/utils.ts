@@ -68,11 +68,10 @@ export const assertOptionActive = (index: number) => {
   expect(getOptionElement(index)).toHaveAttribute('data-active', 'true')
 }
 
-export const assertValueActive = (index: number) => {
+export const assertValueActive = (index: number) =>
   expect(
     screen.getByTestId('wrapper').children[index].getAttribute('data-active')
   ).toBe('true')
-}
 
 export const getOptionElement = (index: number) =>
   screen.getByRole('listbox').querySelector(`#frameworks-option-${index}`)!

@@ -1,8 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import {
-  useMultiComplete,
-  UseMultiCompleteOptions,
-} from '../src/useMultiComplete.ts'
+import { useMultiComplete, UseMultiCompleteOptions } from '../src'
 import { expect } from 'vitest'
 
 describe('useMultiComplete hook tests', () => {
@@ -10,19 +7,16 @@ describe('useMultiComplete hook tests', () => {
     const result = renderHook((p) => useMultiComplete(p), {
       initialProps: {
         values: ['a'],
-        getKey: (v) => v,
-        onChangeValues: () => {},
+        onChange: () => {},
         options: ['a', 'b', 'c', 'd'],
-        renderItem: (v) => v,
         id: 'test-multicomplete',
-      } satisfies UseMultiCompleteOptions<string, HTMLInputElement>,
+      } satisfies UseMultiCompleteOptions<string>,
     })
 
     const currentResult = result.result.current
     expect(currentResult.options).toEqual(['b', 'c', 'd'])
-    expect(currentResult.isExpanded).toBeFalsy()
-    expect(currentResult.isOptionActive(0)).toBeFalsy()
-    expect(currentResult.isValueActive('a')).toBeFalsy()
+    expect(currentResult.activeOptionIndex).toEqual(-1)
+    expect(currentResult.activeValueIndex).toEqual(-1)
     const inputProps = currentResult.getInputProps()
     expect(inputProps).toEqual(
       expect.objectContaining({

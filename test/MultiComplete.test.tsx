@@ -11,7 +11,7 @@ import {
   within,
 } from './utils.ts'
 import { MultiComplete } from './MultiComplete.tsx'
-import { afterEach, beforeEach, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { fireEvent, waitFor } from '@testing-library/react'
 
 const renderMultiComplete = (values = OPTIONS.slice(0, 3)) => {
@@ -19,11 +19,14 @@ const renderMultiComplete = (values = OPTIONS.slice(0, 3)) => {
   render(
     <MultiComplete
       values={values}
-      onChangeValues={changeSpy}
-      renderItem={(v) => v.label}
-      getKey={(v) => v.value}
+      onChange={changeSpy}
+      isEqual={(a, b) => a.value === b.value}
       options={OPTIONS}
       id="frameworks"
+      filterValues
+      queryOptionFilter={(option, query) =>
+        option.value.toLowerCase().includes(query.toLowerCase())
+      }
     />
   )
   return changeSpy

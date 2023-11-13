@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 export const Heading = () => {
-
   const [value, setValue] = useState('Auto')
 
   const [isWrong, setIsWrong] = useState(true)
@@ -32,14 +31,19 @@ export const Heading = () => {
     createTimeouts()
   }
   return (
-    <div role='heading' aria-level={1}
-         className='text-4xl text-center font-semibold active:scale-95 transition duration-200'>
+    <h1
+      className="cursor-pointer text-center text-4xl font-semibold transition duration-200  active:scale-95"
+      onClick={() => reset()}
+    >
       <span>use</span>
       <span
-        onClick={() => reset()}
-        className={`font-black ${isWrong ? 'animate-delete underline' : ''} decoration-red-500  decoration-wavy focus:outline-0  cursor-pointer`}
-      >{value}</span>
+        className={`font-black ${
+          isWrong ? 'animate-delete underline' : ''
+        } decoration-red-500  decoration-wavy focus:outline-0`}
+      >
+        {value}
+      </span>
       <span>Complete</span>
-    </div>
+    </h1>
   )
 }
