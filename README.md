@@ -1,27 +1,61 @@
-# React + TypeScript + Vite
+<h1 align='center' style='font-weight: 500'>use<b style='font-weight: 900'>Multi</b>Complete</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <a aria-label="NPM version" href="https://www.npmjs.com/package/multicomplete">
+    <img alt="" src="https://badgen.net/npm/v/multicomplete">
+  </a>
+  <a aria-label="Package size" href="https://bundlephobia.com/result?p=multicomplete">
+    <img alt="" src="https://badgen.net/bundlephobia/minzip/multicomplete">
+  </a>
+  <a aria-label="License" href="https://github.com/jotoh98/multicomplete/blob/main/LICENSE">
+    <img alt="" src="https://badgen.net/npm/license/multicomplete">
+  </a>
+</p>
 
-Currently, two official plugins are available:
+<p align='center'>The react hook to create <i>multi selection</i> autocomplete components.</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align='center'><a href='https://multicomplete.vercel.app'>Documentation</a></p>
 
-## Expanding the ESLint configuration
+## Features
+- Small Footprint (1.3kb minified + gzipped)
+- aria-compliant
+- Keyboard navigation
+- Headless hook (fully customizable ui)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+<div style='display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem'>
+<div>
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+### PNPM
+```sh
+pnpm add multicomplete
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+</div>
+<div>
+
+### NPM
+```sh
+npm i multicomplete
+```
+
+</div>
+<div>
+
+### Yarn
+```sh
+yarn add multicomplete
+```
+
+</div>
+<div>
+
+### Bun
+```sh
+bun add multicomplete
+```
+
+</div>
+
+</div>
