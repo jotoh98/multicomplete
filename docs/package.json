@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.2",
-    "multicomplete": "^0.1.0",
+    "multicomplete": "^0.2.0",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18"
@@ -37,5 +37,8 @@
     "plugins": [
       "prettier-plugin-tailwindcss"
     ]
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

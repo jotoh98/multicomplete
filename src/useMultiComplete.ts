@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { UseMultiCompleteOptions } from './UseMultiCompleteOptions.ts'
+import { UseMultiCompleteOptions } from './UseMultiCompleteOptions'
 
 const createDefaultQueryOptionFilter =
   <T>() =>

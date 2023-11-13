@@ -1,4 +1,4 @@
-import { useMultiComplete } from '../../src'
+import type { useMultiComplete } from 'multicomplete'
 
 type Result = ReturnType<typeof useMultiComplete>
 type Options = Parameters<typeof useMultiComplete>[0]
@@ -20,5 +20,5 @@ export type OptionsTable = {
     section: React.ReactNode
   } & (true extends IsOptional<Options[K]>
     ? { optional: true; default: string }
-    : Record<string, never>)
+    : NonNullable<unknown>)
 }

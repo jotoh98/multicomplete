@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useMultiComplete, UseMultiCompleteOptions } from '../../src'
+import { useMultiComplete, UseMultiCompleteOptions } from 'multicomplete'
 
 export type ComboboxProps<T> = Omit<
   UseMultiCompleteOptions<T>,
