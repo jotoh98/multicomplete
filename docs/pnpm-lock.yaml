@@ -38,7 +38,7 @@ devDependencies:
     specifier: ^18
     version: 18.2.15
   autoprefixer:
-    specifier: ^10.0.1
+    specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.31)
   eslint:
     specifier: ^8
@@ -47,22 +47,22 @@ devDependencies:
     specifier: 14.0.3
     version: 14.0.3(eslint@8.53.0)(typescript@5.2.2)
   multicomplete:
-    specifier: ^0.2.0
-    version: 0.2.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.2.1
+    version: 0.2.1(react-dom@18.2.0)(react@18.2.0)
   postcss:
     specifier: ^8
     version: 8.4.31
   prettier:
-    specifier: ^3.0.3
-    version: 3.0.3
+    specifier: ^3.1.0
+    version: 3.1.0
   prettier-plugin-tailwindcss:
     specifier: ^0.5.7
-    version: 0.5.7(prettier@3.0.3)
+    version: 0.5.7(prettier@3.1.0)
   raw-loader:
     specifier: ^4.0.2
     version: 4.0.2(webpack@5.89.0)
   tailwindcss:
-    specifier: ^3.3.0
+    specifier: ^3.3.5
     version: 3.3.5
   typescript:
     specifier: ^5
@@ -3848,8 +3848,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /multicomplete@0.2.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-4CgMIqMu1cKPUxf8HT+WwLmx/DmtMp4ZIprM51/VzQhLIVKYGcyJrOL3B1D96U2U1pDaGVtzbHujstGieqN+Lw==}
+  /multicomplete@0.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-+RKThYPqPzVJrLLEFAk/eByQ2WpXf0HFwk+d/d5At1+15wRn/qTIvKabh1+lVBbh3PQRAjUQyA7FvcojhFoAlA==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -4336,7 +4336,7 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-tailwindcss@0.5.7(prettier@3.0.3):
+  /prettier-plugin-tailwindcss@0.5.7(prettier@3.1.0):
     resolution: {integrity: sha512-4v6uESAgwCni6YF6DwJlRaDjg9Z+al5zM4JfngcazMy4WEf/XkPS5TEQjbD+DZ5iNuG6RrKQLa/HuX2SYzC3kQ==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
@@ -4388,11 +4388,11 @@ packages:
       prettier-plugin-twig-melody:
         optional: true
     dependencies:
-      prettier: 3.0.3
+      prettier: 3.1.0
     dev: true
 
-  /prettier@3.0.3:
-    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
+  /prettier@3.1.0:
+    resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
