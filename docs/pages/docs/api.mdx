@@ -1,0 +1,77 @@
+# API
+
+```ts
+const {
+    options,
+    activeValueIndex,
+    activeOptionIndex,
+    getDeleteButtonProps,
+    getInputProps,
+    getPopoverButtonProps,
+    getPopoverProps,
+    getOptionProps,
+    getWrapperProps,
+} = useMultiComplete<TValue, TInputElement>({
+    values,
+    options,
+    onChange,
+    id,
+    isEqual,
+    queryOptionFilter,
+    filterValues,
+    isOpen,
+    onOpenChange,
+})
+```
+
+## Options
+
+```ts
+type UseMultiCompleteOptions<TValue> = {
+  values:	TValue[]
+  options: TValue[]
+  onChange:	(values: TValue[]) => void
+  id: string
+  isEqual?: (a: TValue, b: TValue) => boolean
+  queryOptionFilter?: (option: TValue, query: string) => boolean
+  filterValues?: boolean
+  isOpen?: boolean
+  onOpenChange?: (value: boolean) => void
+}
+```
+
+- `values` - The values that are currently selected
+- `options` - The options that can be selected
+- `onChange` - A callback that is called when the values change
+- `id` - The id of the component
+- `isEqual` - A function that is used to determine if two values are equal. Defaults to `===`
+- `queryOptionFilter` - A function that is used to filter the options based on the query. Defaults to a case-insensitive string match
+- `filterValues` - If true, the values will be filtered out of the options. Defaults to `true`
+- `isOpen` - If true, the popover will be open. Defaults to `false`
+- `onOpenChange` - A callback that is called when the popover is opened or closed
+
+## Return Values
+
+```ts
+type ReturnValues<TValue> = {
+    options: TValue[],
+    activeValueIndex: number,
+    activeOptionIndex: number,
+    getDeleteButtonProps: (option: TValue) => React.HTMLProps<any>,
+    getInputProps: () => React.HTMLProps<any>,
+    getPopoverButtonProps: () => React.HTMLProps<any>,
+    getPopoverProps: () => React.HTMLProps<any>,
+    getOptionProps: (option: TValue, index: number) => React.HTMLProps<any>,
+    getWrapperProps: () => React.HTMLProps<any>,
+}
+```
+
+- `options` - The options that can be selected
+- `activeValueIndex` - The index of the currently active value. `-1` if none are active
+- `activeOptionIndex` - The index of the currently active option. `-1` if none are active
+- `getDeleteButtonProps` - Property bag for a values delete button
+- `getInputProps` - Property bag for the input
+- `getPopoverButtonProps` - Property bag for the popover button
+- `getPopoverProps` - Property bag for the popover
+- `getOptionProps` - Property bag for an option
+- `getWrapperProps` - Property bag for the wrapper

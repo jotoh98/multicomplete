@@ -1,0 +1,92 @@
+# Complex Values
+
+Dealing with complex values is easy with the `useMultiComplete` hook.
+
+The hook has one generic argument, `TValue`, holding the value and option array item type.
+
+In the most simple form, you can pass a simple array of `string` array to both the `options` and `values` fields and everything will work as expected.
+
+For the hook to work correctly with more complex types, we can pass a few options. We’ll be able to
+
+- make filtering the options by query possible and
+- compare an option to a used value to filter it.
+
+The configuration options of the main hook are:
+
+```tsx {3,4} filename="UseMultiCompleteOptions.ts"
+export type UseMultiCompleteOptions<TValue> = {
+  // ...
+  isEqual?: (a: TValue, b: TValue) => boolean
+  queryOptionFilter?: (option: TValue, query: string) => boolean
+  // ...
+}
+```
+
+
+## isEqual
+
+Two compare two values or options, the `isEqual` property is used. It’s  a predicate function getting two `TValue` items and returning a `boolean`. `true` in case the two items are equal, `false` otherwise,
+
+B default, the function compares the two items by directly comparing them with the triple equality operator (`===`).
+
+We use the function to compare an option against used values. If you pass the `filterValues` option with `true`  to the `useMultiComplete` hook (which is the case by default), the chosen values will be filtered from the options displayed in the popover.
+
+## queryOptionFilter
+
+The input is used to reduce the amount of options displayed in the popover. To achieve this, we have to filter out options with the query that we search for.
+
+The option `queryOptionFilter` takes an `option` and the search query `string`. By then checking if the option fits the query, you can decide whether it will be displayed or not,
+
+By default, the option will be cast to string and then a case insensitive substring comparison will be invoked:
+
+```tsx
+String(option).toLowerCase().includes(query.toLowerCase())
+```
+
+## Example
+
+Now, let’s try to implement the functions for data in the following format:
+
+```tsx
+type Item = {
+  value: string
+  label: string
+}
+```
+
+This format may hold a machine readable, unique identifier in the `value` property, similar to the `value` property on an html `<option>` element and a human readable, displayed text in the `label` property.
+
+Let’s imagine we define two items as equal, if their respective `value`s are equal and if we search for an item, it should trigger a case-insensitive search for a `label`.
+
+With these requirements, our functions could look like this:
+
+```tsx
+const isEqual = (a: Item, b: Item) => a.value === b.value
+
+const queryOptionFilter =
+  (option: Item, query: string) => option.label.toLowerCase().includes(query.toLowerCase())
+```
+
+## Convenience Functions
+
+To make the implementation of these functions easier, we also provides two convenience functions:
+
+### createSubstringFilter
+
+`createSubstringFilter` is a convenience wrapper around the `queryOptionsFilter` function.
+It wraps a `toString` function around the given `option` and then compares the result with the query using a case-insensitive substring comparison.
+Our implementation of `queryOptionFilter` from above is equivalent to:
+
+```tsx
+const queryOptionFilter = createSubstringFilter((option: Item) => option.label)
+```
+
+### createValueEquality
+
+`createValueEquality` is a convenience wrapper around the `isEqual` function.
+Given a function mapping the `TValue` to the value to compare, it returns a function comparing the values using the triple equality operator (`===`).
+Our implementation of `isEqual` from above is equivalent to:
+
+```tsx
+const isEqual = createValueEquality((item: Item) => item.value)
+```

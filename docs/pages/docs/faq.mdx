@@ -1,0 +1,19 @@
+import { Callout } from 'nextra/components'
+
+# Frequently Asked Questions
+
+## Does this work with x?
+
+`multicomplete` is ui library agnostic. You bring your favourite component library and we provide some basic functionality.
+
+## I want to keep selected options in the list. What do I do?
+
+You can set the `filterOptions` config prop to `false`.
+This will disable the filtering of selected options from the list.
+
+Filtering by input query will still work.
+
+<Callout type="warning" emoji="⚠️">
+  For complete aria compliance, you should mark selected options with `aria-selected="true"`.
+</Callout>
+

@@ -6,11 +6,7 @@ import React, {
   useState,
 } from 'react'
 import { UseMultiCompleteOptions } from './UseMultiCompleteOptions'
-
-const createDefaultQueryOptionFilter =
-  <T>() =>
-  (option: T, query: string) =>
-    String(option).toLowerCase().includes(query.toLowerCase())
+import { createSubstringFilter } from './utils.ts'
 
 type HtmlElementWithValue = HTMLElement & { value: string }
 
@@ -27,7 +23,7 @@ export const useMultiComplete = <
     id: htmlId,
     isEqual = (a, b) => a === b,
     filterValues = true,
-    queryOptionFilter = createDefaultQueryOptionFilter<TValue>(),
+    queryOptionFilter = createSubstringFilter(String),
     isOpen = false,
     onOpenChange,
   } = props
@@ -219,16 +215,16 @@ export const useMultiComplete = <
       onClick: (e: React.MouseEvent<TElement>) => void
     }>
   ) => ({
-    value: query,
-    ref: inputRef,
-    role: 'combobox',
-    autoComplete: 'none',
-    autoCapitalize: 'none',
+    role: 'combobox' as const,
+    autoComplete: 'none' as const,
+    autoCapitalize: 'none' as const,
     spellCheck: false,
-    'aria-expanded': isOpen,
     'aria-autocomplete': 'list' as const,
+    type: 'text' as const,
+    ref: inputRef,
+    value: query,
+    'aria-expanded': isOpen,
     'aria-controls': popoverId,
-    type: 'text',
     'aria-activedescendant':
       activeOptionIndex >= 0 ? getOptionId(activeOptionIndex) : undefined,
     onClick: (e: React.MouseEvent<TElement>) => {
@@ -275,9 +271,9 @@ export const useMultiComplete = <
   })
   return {
     options: filteredOptions,
-    getWrapperProps,
     activeOptionIndex,
     activeValueIndex,
+    getWrapperProps,
     getDeleteButtonProps,
     getInputProps,
     getPopoverButtonProps,

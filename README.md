@@ -16,46 +16,55 @@
 
 <p align='center'><a href='https://multicomplete.vercel.app'>Documentation</a></p>
 
-## Features
-- Small Footprint (1.3kb minified + gzipped)
-- aria-compliant
-- Keyboard navigation
-- Headless hook (fully customizable ui)
-
-## Installation
-
-<div style='display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem'>
-<div>
-
-### PNPM
 ```sh
 pnpm add multicomplete
 ```
 
-</div>
-<div>
+## Features
 
-### NPM
-```sh
-npm i multicomplete
+- 📦 Tiny - 1.5kb gzipped
+- 🎨 Customizable - style it to your needs
+- ♿ Accessible - fully wai-aria compliant
+- 📖 Typescript - written in typescript
+- 📱 Mobile - works on mobile devices
+- 🌙 Themeable - use your own theme
+- 📚 Examples - examples for different scenarios
+
+## Usage
+
+Import the hook and use it in your component.
+
+```tsx
+import { useMultiComplete } from 'multicomplete'
+
+const handlers = useMultiComplete({
+  options,
+  values,
+  onChange,
+  id,
+  isOpen,
+  onOpenChange,
+})
 ```
 
-</div>
-<div>
+## Helpers
 
-### Yarn
-```sh
-yarn add multicomplete
+There are helpers to make working with complex data values easier.
+
+```tsx
+import {
+  createSubstringFilter,
+  createEqualityFunction
+} from 'multicomplete'
+
+type Item = {
+  id: string
+  name: string
+}
+
+const isEqual = createEqualityFunction<Item, string>(v => v.id)
+// a.k.a. a.id === b.id
+
+const filter = createSubstringFilter<Item>(v => v.name)
+// a.k.a. value.name.toLowerCase().includes(query.toLowerCase())
 ```
-
-</div>
-<div>
-
-### Bun
-```sh
-bun add multicomplete
-```
-
-</div>
-
-</div>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 600 450" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g>
+        <path d="M539.173,116.349C539.173,113.035 536.486,110.349 533.173,110.349C480.771,110.349 101.574,110.349 49.173,110.349C45.859,110.349 43.173,113.035 43.173,116.349C43.173,130.988 43.173,167.349 43.173,167.349L539.173,167.349L539.173,116.349Z" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+        <path d="M539.173,323.349C539.173,326.662 536.486,329.349 533.173,329.349C480.771,329.349 101.574,329.349 49.173,329.349C45.859,329.349 43.173,326.662 43.173,323.349C43.173,294.042 43.173,167.349 43.173,167.349L539.173,167.349L539.173,323.349Z" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <path d="M539.173,323.349C539.173,326.662 536.486,329.349 533.173,329.349C480.771,329.349 101.574,329.349 49.173,329.349C45.859,329.349 43.173,326.662 43.173,323.349C43.173,294.042 43.173,167.349 43.173,167.349L539.173,167.349L539.173,323.349Z"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g>
+                <rect x="43.173" y="167.349" width="496" height="36" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+                <path d="M229.173,185.349C229.173,180.933 225.588,177.349 221.173,177.349L64.173,177.349C59.757,177.349 56.173,180.933 56.173,185.349C56.173,189.764 59.757,193.349 64.173,193.349L221.173,193.349C225.588,193.349 229.173,189.764 229.173,185.349Z" style="fill:rgb(33,132,187);"/>
+            </g>
+            <g>
+                <rect x="43.173" y="203.349" width="496" height="36" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+                <path d="M204.173,221.349C204.173,216.933 200.588,213.349 196.173,213.349L64.173,213.349C59.757,213.349 56.173,216.933 56.173,221.349C56.173,225.764 59.757,229.349 64.173,229.349L196.173,229.349C200.588,229.349 204.173,225.764 204.173,221.349Z" style="fill:rgb(33,132,187);"/>
+            </g>
+            <g>
+                <rect x="43.173" y="239.349" width="496" height="36" style="fill:rgb(33,132,187);fill-opacity:0.16;stroke:rgb(33,132,187);stroke-width:1px;"/>
+                <path d="M277.673,257.349C277.673,252.933 274.088,249.349 269.673,249.349L64.173,249.349C59.757,249.349 56.173,252.933 56.173,257.349C56.173,261.764 59.757,265.349 64.173,265.349L269.673,265.349C274.088,265.349 277.673,261.764 277.673,257.349Z" style="fill:rgb(33,132,187);"/>
+            </g>
+            <g>
+                <rect x="43.173" y="275.349" width="496" height="36" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+                <path d="M229.173,293.349C229.173,288.933 225.588,285.349 221.173,285.349L64.173,285.349C59.757,285.349 56.173,288.933 56.173,293.349C56.173,297.764 59.757,301.349 64.173,301.349L221.173,301.349C225.588,301.349 229.173,297.764 229.173,293.349Z" style="fill:rgb(33,132,187);"/>
+            </g>
+            <g>
+                <rect x="43.173" y="311.349" width="496" height="36" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+                <path d="M246.173,329.349C246.173,324.933 242.588,321.349 238.173,321.349L64.173,321.349C59.757,321.349 56.173,324.933 56.173,329.349C56.173,333.764 59.757,337.349 64.173,337.349L238.173,337.349C242.588,337.349 246.173,333.764 246.173,329.349Z" style="fill:rgb(33,132,187);"/>
+            </g>
+        </g>
+        <path d="M539.173,323.349C539.173,326.662 536.486,329.349 533.173,329.349C480.771,329.349 101.574,329.349 49.173,329.349C45.859,329.349 43.173,326.662 43.173,323.349C43.173,294.042 43.173,167.349 43.173,167.349L539.173,167.349L539.173,323.349Z" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+        <path d="M206.173,138.849C206.173,130.018 199.003,122.849 190.173,122.849L79.173,122.849C70.342,122.849 63.173,130.018 63.173,138.849C63.173,147.679 70.342,154.849 79.173,154.849L190.173,154.849C199.003,154.849 206.173,147.679 206.173,138.849Z" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+        <path d="M171.173,138.849C171.173,134.433 167.588,130.849 163.173,130.849L84.173,130.849C79.757,130.849 76.173,134.433 76.173,138.849C76.173,143.264 79.757,146.849 84.173,146.849L163.173,146.849C167.588,146.849 171.173,143.264 171.173,138.849Z" style="fill:rgb(33,132,187);"/>
+        <path d="M325.173,138.849C325.173,134.433 321.588,130.849 317.173,130.849L238.173,130.849C233.757,130.849 230.173,134.433 230.173,138.849C230.173,143.264 233.757,146.849 238.173,146.849L317.173,146.849C321.588,146.849 325.173,143.264 325.173,138.849Z" style="fill:rgb(33,132,187);fill-opacity:0.23;"/>
+        <rect x="218.173" y="122.849" width="257" height="32" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;stroke-dasharray:2,3,0,0;"/>
+        <circle cx="503.173" cy="138.849" r="16" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;stroke-dasharray:2,3,0,0;"/>
+        <circle cx="191.162" cy="138.849" r="10" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;stroke-dasharray:2,3,0,0;"/>
+        <g>
+            <path d="M187.173,134.859L195.152,142.838" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+            <path d="M187.173,142.838L195.152,134.859" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+        </g>
+        <g>
+            <path d="M497.19,136.859L503.17,142.839" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+            <path d="M503.175,142.839L509.155,136.859" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+        </g>
+    </g>
+    <text x="72.736px" y="77.32px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(33,132,187);">V<tspan x="80.078px 86.752px " y="77.32px 77.32px ">al</tspan>ue &amp; Delete Button</text>
+    <text x="317.982px" y="76.029px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(33,132,187);">Input Field</text>
+    <text x="458.811px" y="76.029px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(33,132,187);">Popover button</text>
+    <text x="130.042px" y="380.191px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(33,132,187);">Popover</text>
+    <text x="419.087px" y="380.267px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(33,132,187);">W<tspan x="430.197px 434.867px " y="380.267px 380.267px ">ra</tspan>pper</text>
+    <path d="M545.173,116.349C545.173,109.726 539.796,104.349 533.173,104.349L49.173,104.349C42.55,104.349 37.173,109.726 37.173,116.349L37.173,323.349C37.173,329.972 42.55,335.349 49.173,335.349L533.173,335.349C539.796,335.349 545.173,329.972 545.173,323.349L545.173,116.349Z" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;stroke-dasharray:2,3,0,0;"/>
+    <path d="M154.56,363.61L154.56,329.349" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <path d="M134.673,122.849L134.673,86.39" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <path d="M346.673,138.849L346.673,86.317" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <path d="M503.173,129.639L503.173,86.317" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <path d="M302.914,363.61L302.914,311.349" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <path d="M443.413,363.61L443.413,335.349" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <rect x="105.504" y="363.68" width="98.113" height="26.945" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <rect x="59.738" y="59.445" width="149.869" height="26.945" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <rect x="300.626" y="59.372" width="92.093" height="26.945" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <rect x="443.518" y="59.372" width="119.31" height="26.945" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <text x="283.73px" y="380.267px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(33,132,187);">Option</text>
+    <rect x="262.532" y="363.61" width="80.764" height="26.945" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+    <rect x="403.031" y="363.683" width="80.764" height="26.945" style="fill:none;stroke:rgb(33,132,187);stroke-width:1px;"/>
+</svg>

@@ -1,5 +1,5 @@
 'use client'
-import { FloatingInfo } from '@/app/FloatingInfo'
+import { FloatingInfo } from '@/components/FloatingInfo'
 
 export const MoreInfo = (props: {
   children: React.ReactNode

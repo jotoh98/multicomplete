@@ -37,7 +37,7 @@ export const MultiCompleteBasic = (props: ComboboxProps<string>) => {
         <span
           key={value}
           data-active={activeValueIndex === index}
-          className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-3 data-[active=true]:bg-gray-300"
+          className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-3 data-[active=true]:bg-gray-300 dark:bg-gray-800 dark:data-[active=true]:bg-gray-700"
         >
           {value}
           <button
@@ -51,7 +51,7 @@ export const MultiCompleteBasic = (props: ComboboxProps<string>) => {
       <div className="flex shrink-0 grow basis-[20px]">
         <input
           {...getInputProps()}
-          className="h-10 grow bg-transparent focus:outline-0"
+          className="h-10 grow appearance-none border-0 bg-transparent focus:shadow-none focus:outline-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
           placeholder="Search"
         />
         <button
@@ -93,7 +93,7 @@ export const MultiCompleteBasic = (props: ComboboxProps<string>) => {
       {isOpen && options.length > 0 && (
         <div
           {...getPopoverProps()}
-          className="absolute -left-[2px] -right-[2px] top-full z-10 -mt-px box-border max-h-[200px] overflow-y-auto rounded-b border-2 border-gray-500 bg-white"
+          className="absolute -left-[2px] -right-[2px] top-full z-10 -mt-px box-border max-h-[200px] overflow-y-auto rounded-b border-2 border-gray-500 bg-white dark:bg-gray-900"
         >
           <ul>
             {options.map((option, optionIndex) => (
@@ -101,7 +101,7 @@ export const MultiCompleteBasic = (props: ComboboxProps<string>) => {
                 data-active={activeOptionIndex == optionIndex}
                 key={option}
                 {...getOptionProps(option, optionIndex)}
-                className="cursor-pointer px-2 py-2 data-[active=true]:bg-gray-200"
+                className="cursor-pointer px-2 py-2 data-[active=true]:bg-gray-200 dark:data-[active=true]:bg-gray-700"
               >
                 {option}
               </li>

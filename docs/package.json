@@ -1,19 +1,22 @@
 {
   "name": "multicomplete-docs",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:generate": "cd .. && vitest run --reporter=json > ./docs/test-results.json"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.2",
-    "multicomplete": "^0.2.0",
     "next": "14.0.2",
+    "nextra": "latest",
+    "nextra-theme-docs": "latest",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -22,9 +25,11 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
+    "multicomplete": "^0.2.0",
     "postcss": "^8",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.7",
+    "raw-loader": "^4.0.2",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },

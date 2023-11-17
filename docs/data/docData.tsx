@@ -1,4 +1,4 @@
-import { OptionsTable } from '@/app/types'
+import { OptionsTable } from '@/data/types'
 
 const tValue = <span className="text-generics">TValue</span>
 export const optionsTable: OptionsTable = {

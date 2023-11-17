@@ -1,0 +1,129 @@
+import { AriaImageHover, ConnectedAriaImage } from '../../../components/ConnectedAriaImage'
+import { ArrowKey } from '../../../components/ArrowKey'
+import { InteractiveAriaImage } from '../../../components/InteractiveAriaImage'
+
+export const BackImage = ({ info }) => (
+  <a href="#overview">
+    <figure className="inline-block w-44 float-right">
+      <InteractiveAriaImage activeInfo={info} active={false} />
+    </figure>
+  </a>
+)
+
+# Roles
+
+The following sections describe the various element roles involved in building the multi-select autoccomplete component.
+
+## Overview
+
+Consider the following schema.
+The autocomplete consists of 6 basic building blocks:
+
+export const AriaLink = (props) => (
+  <AriaImageHover info={props.info}>
+    <a href={`#${props.info}`} className="underline decoration-dashed">
+      {props.children}
+    </a>
+  </AriaImageHover>
+)
+
+1. A <AriaLink info="value">value container</AriaLink> with a delete button to remove the selected value.
+2. An <AriaLink info="input">input field</AriaLink> element that is used to enter the search query.
+3. A <AriaLink info="button">button</AriaLink> to toggle the listbox popover.
+4. A <AriaLink info="popover">listbox popover</AriaLink> that contains the list of options.
+5. An <AriaLink info="option">option</AriaLink> element that represents a single option.
+6. A <AriaLink info="wrapper">wrapper</AriaLink> element that contains the entire autocomplete component.
+
+<figure>
+  <ConnectedAriaImage />
+  <figcaption>Schematic overview over the component roles. Hover the role name to highlight the components.</figcaption>
+</figure>
+
+We'll cover the roles in detail in the following sections.
+
+
+<AriaImageHover info="value" as="section">
+
+  ## Value
+
+  <BackImage info="value" />
+
+  The value container is has no special role and is simply a container for the selected value and a delete button.
+
+  The delete button and the value container are not focusable.
+  By clicking on the <ArrowKey dir="left" /> and <ArrowKey dir="right" /> arrow keys, the user can navigate through the selected values, highlighting the
+  next or previous value.
+  By clicking the backspace key, the user can delete the currently highlighted value.
+  If the backspace key is pressed in the empty <AriaLink info="input">input field</AriaLink>, the user will delete the
+  last value in the list.
+
+</AriaImageHover>
+
+<AriaImageHover info="input" as="section">
+
+  ## Input
+
+  <BackImage info="input" />
+
+  The input serves as a search field for the list of <AriaLink info="option">options</AriaLink>.
+  The input is focusable and the user can type in a search query.
+  By entering a search query, the input opens the <AriaLink info="popover">listbox popover</AriaLink> and filters the list of <AriaLink info="option">options</AriaLink>.
+
+</AriaImageHover>
+
+<AriaImageHover info="button" as="section">
+
+  ## Button
+
+  <BackImage info="button" />
+
+  The button is used to toggle the <AriaLink info="popover">listbox popover</AriaLink>.
+  The button is not focusable and the user can toggle the <AriaLink info="popover">listbox popover</AriaLink> by pressing the enter or space key.
+
+</AriaImageHover>
+
+<AriaImageHover info="popover" as="section">
+
+  ## Popover
+
+  <BackImage info="popover" />
+
+  The popover is a container for the list of <AriaLink info="option">options</AriaLink>.
+  The user can navigate through the list of <AriaLink info="option">options</AriaLink> by pressing the up and down arrow keys.
+  The popover is closed when
+  - the user presses the <kbd>Esc</kbd> key or
+  - clicks outside the <AriaLink info="wrapper">wrapper</AriaLink> element or
+  - selects an <AriaLink info="option">option</AriaLink> either by clicking on it or by pressing the <kbd>Enter</kbd> key.
+
+</AriaImageHover>
+
+<AriaImageHover info="option" as="section">
+
+  ## Option
+
+  <BackImage info="option" />
+
+  The option represents a single option in the list of <AriaLink info="option">options</AriaLink>.
+  The option is not focusable.
+  The user can select an option by pressing the <kbd>Enter</kbd> key.
+  The <AriaLink info="option">option</AriaLink> is also selectable by clicking on it.
+
+  To navigate between <AriaLink info="option">options</AriaLink>, the user can press the <ArrowKey dir="up" /> and <ArrowKey dir="down" /> arrow keys.
+  Pressing the <ArrowKey dir="up" /> arrow key, the previous <AriaLink info="option">option</AriaLink> is highlighted.
+  When the user presses the <ArrowKey dir="down" /> arrow key, the next <AriaLink info="option">option</AriaLink> is highlighted.
+</AriaImageHover>
+
+<AriaImageHover info="wrapper">
+
+  ## Wrapper
+
+  <BackImage info="wrapper" />
+
+  The wrapper bundles all elements together and acts as the root element of the autocomplete component.
+  It binds all click and keydown handlers for controlling the autocomplete behavior.
+
+  The wrapper should hold the visual indication of the focus state, for example via a style change using the `:focus-within` pseudo-class.
+
+  The wrapper gets its properties from the [`getWrapperProps`](/docs/return-values#getwrapperprops) function.
+
+</AriaImageHover>

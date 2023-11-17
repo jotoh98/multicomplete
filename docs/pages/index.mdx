@@ -1,0 +1,50 @@
+import { Heading } from '../components/Heading'
+import { Examples } from '../components/Examples'
+import { Tabs } from 'nextra/components'
+import { PackageManagerTabs } from '../components/PackageManagerTabs'
+
+
+  <section className="mt-[5vh]"><Heading /></section>
+
+<h3 className="text-center text-lg text-gray-400 my-8">
+  One hook - endless options to choose from
+</h3>
+
+<section className="w-full max-w-md my-20 mx-auto">
+  <Examples />
+</section>
+
+<section className="w-full max-w-md mx-auto">
+  <PackageManagerTabs>
+    <Tabs.Tab>
+      ```sh copy
+      pnpm add multicomplete
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```sh copy
+      npm i multicomplete
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```sh copy
+      yarn add multicomplete
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```sh copy
+      bun add multicomplete
+      ```
+    </Tabs.Tab>
+  </PackageManagerTabs>
+</section>
+
+## Features
+
+- 📦 **Tiny** - 1.5kb gzipped
+- 🎨 **Customizable** - style it to your needs
+- ♿ **Accessible** - fully wai-aria compliant
+- 📖 **Typescript** - written in typescript
+- 📱 **Mobile** - works on mobile devices
+- 🌙 **Themeable** - use your own theme
+- 📚 **Examples** - examples for different scenarios

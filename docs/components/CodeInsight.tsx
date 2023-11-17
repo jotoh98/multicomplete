@@ -1,6 +1,6 @@
-import { MoreInfo } from '@/app/MoreInfo'
-import { ReturnInsights } from '@/app/types'
-import { optionsTable } from '@/app/docData'
+import { MoreInfo } from '@/components/MoreInfo'
+import { ReturnInsights } from '@/data/types'
+import { optionsTable } from '@/data/docData'
 
 const returnInsights: ReturnInsights = {
   options: 'The filtered options to display',

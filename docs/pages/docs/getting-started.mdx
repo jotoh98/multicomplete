@@ -1,0 +1,83 @@
+import { PackageManagerTabs, Tab } from '../../components/PackageManagerTabs'
+import { InteractiveAriaImage } from '../../components/InteractiveAriaImage'
+import { useState } from 'react'
+
+# Getting Started
+
+## Installation
+
+Inside your project directory, run the following command:
+
+<PackageManagerTabs>
+  <Tab>
+    ```sh copy
+    pnpm add multicomplete
+    ```
+  </Tab>
+  <Tab>
+    ```sh copy
+    npm i multicomplete
+    ```
+  </Tab>
+  <Tab>
+    ```sh copy
+    yarn add multicomplete
+    ```
+  </Tab>
+  <Tab>
+    ```sh copy
+    bun add multicomplete
+    ```
+  </Tab>
+</PackageManagerTabs>
+
+## Brief introduction
+
+useMultiComplete is a react hook to create a multi-select autocomplete component.
+
+To create your own component, it delivers properties for the 5 basic building blocks of a multi-select autocomplete component:
+
+
+export const BasicInteractiveImage = () => {
+  const [activeInfo, setActiveInfo] = useState()
+
+  return (
+    <InteractiveAriaImage activeInfo={activeInfo} setActiveInfo={setActiveInfo} />
+  )
+}
+
+<figure>
+  <BasicInteractiveImage />
+  <figcaption className="text-center">
+    Schematic overview of the main components of a multi select autocomplete
+  </figcaption>
+</figure>
+
+To get a basic setup, you feed the `useMultiComplete` hook with:
+
+```tsx {10-17} filename="MyOwnMulticomplete.tsx"
+import { useMultiComplete } from 'multicomplete'
+import { useMemo, useState } from 'react'
+
+// component definition ...
+
+const options = useMemo(() => ['Option 1', 'Option 2', 'Option 3'])
+const [values, setValues] = useState([])
+const [isOpen, setIsOpen] = useState(false)
+
+const handlers = useMultiComplete({
+  options,                    // 1
+  values,                     // ┬─ 2
+  onChange: setValues,        // ┘
+  id: 'my-own-multicomplete', // 3
+  isOpen,                     // ┬─ 4
+  onOpenChange: setIsOpen,    // ┘
+})
+
+// rest of component ...
+```
+
+1. a list of `options`
+2. a `value` array and a `onChange` function to update the value
+3. a html `id` to compute all accessibility attributes
+4. (_optional_) `isOpen` and `onOpenChange` to control the visibility of the dropdown

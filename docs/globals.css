@@ -19,3 +19,9 @@
     color: white;
   }
 }
+
+@layer components {
+  kbd {
+    @apply inline-block px-1 py-px text-sm font-sans font-medium border border-gray-300 dark:border-gray-700 rounded;
+  }
+}

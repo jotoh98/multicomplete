@@ -1,5 +1,5 @@
 'use client'
-import { FloatingInfo } from '@/app/FloatingInfo'
+import { FloatingInfo } from '@/components/FloatingInfo'
 
 export const RequiredStar = () => (
   <FloatingInfo info="This property is required">
