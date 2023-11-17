@@ -1,40 +1,32 @@
 {
-  "numTotalTestSuites": 12,
-  "numPassedTestSuites": 12,
+  "numTotalTestSuites": 15,
+  "numPassedTestSuites": 15,
   "numFailedTestSuites": 0,
   "numPendingTestSuites": 0,
-  "numTotalTests": 28,
-  "numPassedTests": 28,
+  "numTotalTests": 38,
+  "numPassedTests": 38,
   "numFailedTests": 0,
   "numPendingTests": 0,
   "numTodoTests": 0,
-  "startTime": 1700073580982,
+  "startTime": 1700246309526,
   "success": true,
   "testResults": [
     {
       "assertionResults": [
         {
-          "ancestorTitles": [
-            "",
-            "multi complete component",
-            "initial state"
-          ],
+          "ancestorTitles": ["", "multi complete component", "initial state"],
           "fullName": " multi complete component initial state should render chosen values on init",
           "status": "passed",
           "title": "should render chosen values on init",
-          "duration": 43,
+          "duration": 42,
           "failureMessages": []
         },
         {
-          "ancestorTitles": [
-            "",
-            "multi complete component",
-            "initial state"
-          ],
+          "ancestorTitles": ["", "multi complete component", "initial state"],
           "fullName": " multi complete component initial state should not display popover initially",
           "status": "passed",
           "title": "should not display popover initially",
-          "duration": 7,
+          "duration": 6,
           "failureMessages": []
         },
         {
@@ -46,7 +38,7 @@
           "fullName": " multi complete component should open popover when input is focused",
           "status": "passed",
           "title": "when input is focused",
-          "duration": 13,
+          "duration": 14,
           "failureMessages": []
         },
         {
@@ -58,7 +50,7 @@
           "fullName": " multi complete component should open popover when popover button is clicked",
           "status": "passed",
           "title": "when popover button is clicked",
-          "duration": 14,
+          "duration": 15,
           "failureMessages": []
         },
         {
@@ -82,7 +74,7 @@
           "fullName": " multi complete component should open popover when arrow up is pressed in wrapper",
           "status": "passed",
           "title": "when arrow up is pressed in wrapper",
-          "duration": 9,
+          "duration": 7,
           "failureMessages": []
         },
         {
@@ -94,7 +86,7 @@
           "fullName": " multi complete component should close popover when pressing escape",
           "status": "passed",
           "title": "when pressing escape",
-          "duration": 8,
+          "duration": 9,
           "failureMessages": []
         },
         {
@@ -106,7 +98,7 @@
           "fullName": " multi complete component should close popover when clicking outside",
           "status": "passed",
           "title": "when clicking outside",
-          "duration": 6,
+          "duration": 7,
           "failureMessages": []
         },
         {
@@ -142,7 +134,19 @@
           "fullName": " multi complete component should remove value when active value is deleted with backspace",
           "status": "passed",
           "title": "when active value is deleted with backspace",
-          "duration": 3,
+          "duration": 4,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "multi complete component",
+            "should remove value"
+          ],
+          "fullName": " multi complete component should remove value only when query is empty",
+          "status": "passed",
+          "title": "only when query is empty",
+          "duration": 41,
           "failureMessages": []
         },
         {
@@ -154,7 +158,7 @@
           "fullName": " multi complete component should set active option when arrow down key is pressed",
           "status": "passed",
           "title": "when arrow down key is pressed",
-          "duration": 15,
+          "duration": 16,
           "failureMessages": []
         },
         {
@@ -166,7 +170,7 @@
           "fullName": " multi complete component should set active option when arrow up key is pressed",
           "status": "passed",
           "title": "when arrow up key is pressed",
-          "duration": 13,
+          "duration": 15,
           "failureMessages": []
         },
         {
@@ -178,7 +182,7 @@
           "fullName": " multi complete component should set active option when option is hovered",
           "status": "passed",
           "title": "when option is hovered",
-          "duration": 24,
+          "duration": 22,
           "failureMessages": []
         },
         {
@@ -190,7 +194,7 @@
           "fullName": " multi complete component should set active option looping forwards/arrow down",
           "status": "passed",
           "title": "looping forwards/arrow down",
-          "duration": 31,
+          "duration": 32,
           "failureMessages": []
         },
         {
@@ -202,7 +206,7 @@
           "fullName": " multi complete component should set active option looping backwards/arrow up",
           "status": "passed",
           "title": "looping backwards/arrow up",
-          "duration": 29,
+          "duration": 31,
           "failureMessages": []
         },
         {
@@ -214,7 +218,7 @@
           "fullName": " multi complete component should set active option pressing home and end to jump to the end",
           "status": "passed",
           "title": "pressing home and end to jump to the end",
-          "duration": 17,
+          "duration": 16,
           "failureMessages": []
         },
         {
@@ -226,7 +230,7 @@
           "fullName": " multi complete component should add value when option is clicked",
           "status": "passed",
           "title": "when option is clicked",
-          "duration": 17,
+          "duration": 16,
           "failureMessages": []
         },
         {
@@ -238,7 +242,7 @@
           "fullName": " multi complete component should add value when enter is pressed on active option",
           "status": "passed",
           "title": "when enter is pressed on active option",
-          "duration": 9,
+          "duration": 10,
           "failureMessages": []
         },
         {
@@ -250,7 +254,7 @@
           "fullName": " multi complete component should set active value when arrow left is pressed",
           "status": "passed",
           "title": "when arrow left is pressed",
-          "duration": 9,
+          "duration": 8,
           "failureMessages": []
         },
         {
@@ -262,7 +266,7 @@
           "fullName": " multi complete component should set active value when arrow right is pressed",
           "status": "passed",
           "title": "when arrow right is pressed",
-          "duration": 8,
+          "duration": 10,
           "failureMessages": []
         },
         {
@@ -274,7 +278,7 @@
           "fullName": " multi complete component should set active value when arrow right is pressed on last value go to input",
           "status": "passed",
           "title": "when arrow right is pressed on last value go to input",
-          "duration": 6,
+          "duration": 5,
           "failureMessages": []
         },
         {
@@ -286,7 +290,7 @@
           "fullName": " multi complete component should filter values when typing in input",
           "status": "passed",
           "title": "when typing in input",
-          "duration": 26,
+          "duration": 23,
           "failureMessages": []
         },
         {
@@ -310,7 +314,7 @@
           "fullName": " multi complete component should filter values when typing in input with case sensitivity",
           "status": "passed",
           "title": "when typing in input with case sensitivity",
-          "duration": 23,
+          "duration": 20,
           "failureMessages": []
         },
         {
@@ -326,19 +330,16 @@
           "failureMessages": []
         },
         {
-          "ancestorTitles": [
-            "",
-            "multi complete component"
-          ],
+          "ancestorTitles": ["", "multi complete component"],
           "fullName": " multi complete component should focus input when clicking on wrapper",
           "status": "passed",
           "title": "should focus input when clicking on wrapper",
-          "duration": 4,
+          "duration": 3,
           "failureMessages": []
         }
       ],
-      "startTime": 1700073581459,
-      "endTime": 1700073581866,
+      "startTime": 1700246310113,
+      "endTime": 1700246310559,
       "status": "passed",
       "message": "",
       "name": "/Users/jotoh/c/multicomplete-vite/test/MultiComplete.test.tsx"
@@ -346,10 +347,7 @@
     {
       "assertionResults": [
         {
-          "ancestorTitles": [
-            "",
-            "useMultiComplete hook tests"
-          ],
+          "ancestorTitles": ["", "useMultiComplete hook tests"],
           "fullName": " useMultiComplete hook tests should have initial a11y props",
           "status": "passed",
           "title": "should have initial a11y props",
@@ -357,11 +355,92 @@
           "failureMessages": []
         }
       ],
-      "startTime": 1700073581423,
-      "endTime": 1700073581431,
+      "startTime": 1700246310074,
+      "endTime": 1700246310082,
       "status": "passed",
       "message": "",
       "name": "/Users/jotoh/c/multicomplete-vite/test/useMultiComplete.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["", "createSubstringFilter test"],
+          "fullName": " createSubstringFilter test should return true if the query is a substring of the option",
+          "status": "passed",
+          "title": "should return true if the query is a substring of the option",
+          "duration": 1,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": ["", "createSubstringFilter test"],
+          "fullName": " createSubstringFilter test should return true if the query is a case insensitive substring",
+          "status": "passed",
+          "title": "should return true if the query is a case insensitive substring",
+          "duration": 0,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": ["", "createSubstringFilter test"],
+          "fullName": " createSubstringFilter test should return false if the query is not a substring of the option",
+          "status": "passed",
+          "title": "should return false if the query is not a substring of the option",
+          "duration": 0,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": ["", "createSubstringFilter test"],
+          "fullName": " createSubstringFilter test should return true if the query is a substring of the options value",
+          "status": "passed",
+          "title": "should return true if the query is a substring of the options value",
+          "duration": 0,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": ["", "createSubstringFilter test"],
+          "fullName": " createSubstringFilter test should return false if the query is not a substring of the options value",
+          "status": "passed",
+          "title": "should return false if the query is not a substring of the options value",
+          "duration": 0,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": ["", "createEqualityFunction tests"],
+          "fullName": " createEqualityFunction tests should return true if the mapper returns the same value for both options",
+          "status": "passed",
+          "title": "should return true if the mapper returns the same value for both options",
+          "duration": 0,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": ["", "createEqualityFunction tests"],
+          "fullName": " createEqualityFunction tests should return false if the mapper returns different values for both options",
+          "status": "passed",
+          "title": "should return false if the mapper returns different values for both options",
+          "duration": 0,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": ["", "createEqualityFunction tests"],
+          "fullName": " createEqualityFunction tests should return true if the mapper returns the same value for both options",
+          "status": "passed",
+          "title": "should return true if the mapper returns the same value for both options",
+          "duration": 0,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": ["", "createEqualityFunction tests"],
+          "fullName": " createEqualityFunction tests should return false if the mapper returns different values for both options",
+          "status": "passed",
+          "title": "should return false if the mapper returns different values for both options",
+          "duration": 1,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1700246310038,
+      "endTime": 1700246310040,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/jotoh/c/multicomplete-vite/test/utils.test.ts"
     }
   ]
 }

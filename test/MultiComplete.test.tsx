@@ -140,6 +140,21 @@ describe('multi complete component', () => {
       )
       expect(changeSpy).toHaveBeenCalledWith([OPTIONS[0], OPTIONS[2]])
     })
+
+    it('only when query is empty', async () => {
+      const changeSpy = renderMultiComplete()
+
+      await act(() => userEvent.type(screen.getByRole('combobox'), 'a'))
+      await act(() =>
+        userEvent.type(screen.getByRole('combobox'), '{backspace}')
+      )
+      expect(changeSpy).not.toHaveBeenCalled()
+
+      await act(() =>
+        userEvent.type(screen.getByRole('combobox'), '{backspace}')
+      )
+      expect(changeSpy).toHaveBeenCalledWith([OPTIONS[0], OPTIONS[1]])
+    })
   })
 
   describe('should set active option', () => {

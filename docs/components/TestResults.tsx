@@ -30,7 +30,11 @@ export const TestResults = () => (
         {cases.map(([ancestor, assertions]) => (
           <FileTree.Folder key={ancestor} name={ancestor} defaultOpen>
             {assertions.map((assertion) => (
-              <FileTree.File key={assertion} name={assertion} />
+              <FileTree.File
+                key={assertion}
+                name={assertion}
+                label={<>{assertion} ✅</>}
+              />
             ))}
           </FileTree.Folder>
         ))}
