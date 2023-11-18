@@ -1,0 +1,77 @@
+import { Basic } from '../../examples/Basic'
+import { NoSSR } from '../../components/NoSSR'
+
+# Basic Example
+
+This is a basic markup example without any styling.
+The markup is totally up to you.
+
+<section className="my-6">
+  <NoSSR><Basic /></NoSSR>
+</section>
+
+## Code
+
+```tsx filename="BasicMulticomplete.tsx"
+import {useMultiComplete} from 'multicomplete'
+import {useState} from 'react'
+
+const options = [
+  'Autocomplete',
+  'MultiComplete',
+  'MultiSelect',
+  'MultiCombobox',
+  'MultiAutocomplete',
+  'MultiMultiComplete',
+  'MultiMultiSelect',
+  'MultiMultiCombobox',
+  'MultiMultiAutocomplete',
+  'MultiMultiMultiComplete',
+  'MultiMultiMultiSelect',
+]
+
+export const BasicMulticomplete = () => {
+  const [values, setValues] = useState<typeof options>([])
+  const [isOpen, setIsOpen] = useState(false)
+  const result = useMultiComplete({
+    isOpen,
+    onOpenChange: setIsOpen,
+    queryOptionFilter: (option, query) =>
+      option.toLowerCase().includes(query.toLowerCase()),
+    values,
+    onChange: setValues,
+    options,
+    id: 'basic-example',
+  })
+
+  return (
+    <div {...result.getWrapperProps()}>
+      {values.map((value, index) => (
+        <span key={value} data-active={result.activeValueIndex === index}>
+          {value}
+          <button {...result.getDeleteButtonProps(value)}>×</button>
+        </span>
+      ))}
+      <input {...result.getInputProps()} placeholder='Search' />
+      <button {...result.getPopoverButtonProps()} aria-label='Open Popover'>
+        {isOpen ? 'Close' : 'Open'}
+      </button>
+      {isOpen && result.options.length > 0 && (
+        <div {...result.getPopoverProps()}>
+          <ul>
+            {options.map((option, optionIndex) => (
+              <li
+                data-active={result.activeOptionIndex == optionIndex}
+                key={option}
+                {...result.getOptionProps(option, optionIndex)}
+              >
+                {option}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )
+}
+```

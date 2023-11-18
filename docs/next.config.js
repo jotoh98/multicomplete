@@ -5,4 +5,14 @@ const withNextra = require('nextra')({
   defaultShowCopyCode: true,
 })
 
-module.exports = withNextra()
+module.exports = withNextra({
+  async redirects() {
+    return [
+      {
+        source: '/docs',
+        destination: '/docs/getting-started',
+        permanent: true,
+      },
+    ]
+  },
+})

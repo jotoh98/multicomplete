@@ -1,7 +1,8 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import { useRouter } from 'next/router'
 
-const config: DocsThemeConfig = {
+export default {
   logo: (
     <span>
       use<b>Multi</b>Complete
@@ -12,8 +13,14 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/jotoh98/multicomplete/docs',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'multicomplete',
   },
-}
-
-export default config
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s – multicomplete',
+      }
+    }
+  },
+} satisfies DocsThemeConfig

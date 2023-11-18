@@ -14,7 +14,13 @@
 
 <p align='center'>The react hook to create <i>multi selection</i> autocomplete components.</p>
 
-<p align='center'><a href='https://multicomplete.vercel.app'>Documentation</a></p>
+<p align='center'>
+<a href='https://multicomplete.vercel.app'>Website</a>
+-
+<a href='https://multicomplete.vercel.app/docs'>Docs</a>
+-
+<a href='https://multicomplete.vercel.app/examples'>Examples</a>
+</p>
 
 ```sh
 pnpm add multicomplete

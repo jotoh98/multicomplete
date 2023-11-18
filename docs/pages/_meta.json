@@ -1,7 +1,7 @@
 {
   "index": {
     "type": "page",
-    "title": "Nextra",
+    "title": "multicomplete",
     "display": "hidden",
     "theme": {
       "layout": "default"
@@ -9,6 +9,10 @@
   },
   "docs": {
     "title": "Docs",
+    "type": "page"
+  },
+  "examples": {
+    "title": "Examples",
     "type": "page"
   }
 }

@@ -1,0 +1,150 @@
+import { CSS } from '../../examples/CSS'
+import { NoSSR } from '../../components/NoSSR'
+
+# Basic Styled Example
+
+This example is a reset css-styled example.
+Only the basic css directives are included to make the multicomplete visually sound.
+
+<section className="my-6">
+  <NoSSR><CSS /></NoSSR>
+</section>
+
+## Code
+
+```tsx filename="StyledMulticomplete.tsx"
+import {useMultiComplete} from 'multicomplete'
+import {useState} from 'react'
+import './styles.css'
+
+const options = [
+  'Autocomplete',
+  'MultiComplete',
+  'MultiSelect',
+  'MultiCombobox',
+  'MultiAutocomplete',
+  'MultiMultiComplete',
+  'MultiMultiSelect',
+  'MultiMultiCombobox',
+  'MultiMultiAutocomplete',
+  'MultiMultiMultiComplete',
+  'MultiMultiMultiSelect',
+]
+
+export const StyledMulticomplete = () => {
+  const [values, setValues] = useState<typeof options>([])
+  const [isOpen, setIsOpen] = useState(false)
+  const result = useMultiComplete({
+    isOpen,
+    onOpenChange: setIsOpen,
+    queryOptionFilter: (option, query) =>
+      option.toLowerCase().includes(query.toLowerCase()),
+    values,
+    onChange: setValues,
+    options,
+    id: 'basic-example',
+  })
+
+  return (
+    <div {...result.getWrapperProps()} className="multicomplete">
+      {values.map((value, index) => (
+        <span key={value} data-active={result.activeValueIndex === index}>
+          {value}
+          <button {...result.getDeleteButtonProps(value)}>×</button>
+        </span>
+      ))}
+      <div className="input-wrapper">
+        <input {...result.getInputProps()} placeholder='Search' />
+        <button {...result.getPopoverButtonProps()} aria-label='Open Popover'>
+          {isOpen ? 'Close' : 'Open'}
+        </button>
+      </div>
+      {isOpen && result.options.length > 0 && (
+        <div {...result.getPopoverProps()}>
+          <ul>
+            {options.map((option, optionIndex) => (
+              <li
+                data-active={result.activeOptionIndex == optionIndex}
+                key={option}
+                {...result.getOptionProps(option, optionIndex)}
+              >
+                {option}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+
+```css filename="styles.css"
+.multicomplete {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 8px;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.multicomplete:focus-within {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.multicomplete button {
+    padding-left: 5px;
+}
+
+.multicomplete > [data-active="true"] {
+    background: #555;
+}
+
+.multicomplete [role="combobox"] {
+    appearance: none;
+    background: transparent;
+    flex-grow: 1;
+}
+
+.multicomplete [role="combobox"]:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.multicomplete .input-wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 200px;
+    flex-shrink: 0;
+}
+
+.multicomplete [role="listbox"] {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000;
+    z-index: 2;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.multicomplete ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.multicomplete [role="option"] {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.multicomplete [role="option"][data-active="true"] {
+    background: #333;
+}
+```
