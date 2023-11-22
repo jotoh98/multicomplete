@@ -13,23 +13,32 @@ import {
 import { MultiComplete } from './MultiComplete.tsx'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { fireEvent, waitFor } from '@testing-library/react'
+import { createEqualityFunction, createSubstringFilter } from '../src'
+
+type Option = (typeof OPTIONS)[number]
+const filter = createSubstringFilter<Option>((v) => v.label)
+const isEqual = createEqualityFunction<Option, string>((v) => v.value)
 
 const renderMultiComplete = (values = OPTIONS.slice(0, 3)) => {
   const changeSpy = vi.fn()
+  const formKeyDownSpy = vi.fn()
   render(
-    <MultiComplete
-      values={values}
-      onChange={changeSpy}
-      isEqual={(a, b) => a.value === b.value}
-      options={OPTIONS}
-      id="frameworks"
-      filterValues
-      queryOptionFilter={(option, query) =>
-        option.value.toLowerCase().includes(query.toLowerCase())
-      }
-    />
+    <form onKeyDown={formKeyDownSpy}>
+      <MultiComplete
+        values={values}
+        onChange={changeSpy}
+        isEqual={isEqual}
+        options={OPTIONS}
+        id="frameworks"
+        filterValues
+        queryOptionFilter={filter}
+      />
+    </form>
   )
-  return changeSpy
+  return {
+    changeSpy,
+    formKeyDownSpy,
+  }
 }
 
 describe('multi complete component', () => {
@@ -72,17 +81,11 @@ describe('multi complete component', () => {
       act(() => screen.getByRole('button', { name: 'Open Popover' }).click())
     })
 
-    it('when arrow down is pressed in wrapper', () => {
-      act(() =>
-        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown' })
-      )
-    })
-
-    it('when arrow up is pressed in wrapper', () => {
-      act(() =>
-        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowUp' })
-      )
-    })
+    for (const key of ['ArrowDown', 'ArrowUp', 'Enter', 'Space']) {
+      it(`when ${key} is pressed in input`, () => {
+        act(() => fireEvent.keyDown(screen.getByRole('combobox'), { key }))
+      })
+    }
   })
 
   describe('should close popover', () => {
@@ -111,7 +114,7 @@ describe('multi complete component', () => {
 
   describe('should remove value', () => {
     it('when delete button is clicked', () => {
-      const changeSpy = renderMultiComplete()
+      const { changeSpy } = renderMultiComplete()
 
       act(() =>
         screen.getByTestId(OPTIONS[0].value).querySelector('button')!.click()
@@ -119,7 +122,7 @@ describe('multi complete component', () => {
       expect(changeSpy).toHaveBeenCalledWith(OPTIONS.slice(1, 3))
     })
     it('when backspace is clicked in empty input', () => {
-      const changeSpy = renderMultiComplete()
+      const { changeSpy } = renderMultiComplete()
 
       act(() =>
         fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Backspace' })
@@ -127,7 +130,7 @@ describe('multi complete component', () => {
       expect(changeSpy).toHaveBeenCalledWith(OPTIONS.slice(0, 2))
     })
     it('when active value is deleted with backspace', () => {
-      const changeSpy = renderMultiComplete()
+      const { changeSpy } = renderMultiComplete()
 
       act(() =>
         fireEvent.keyDown(screen.getByTestId('wrapper'), { key: 'ArrowLeft' })
@@ -142,7 +145,7 @@ describe('multi complete component', () => {
     })
 
     it('only when query is empty', async () => {
-      const changeSpy = renderMultiComplete()
+      const { changeSpy } = renderMultiComplete()
 
       await act(() => userEvent.type(screen.getByRole('combobox'), 'a'))
       await act(() =>
@@ -253,7 +256,7 @@ describe('multi complete component', () => {
     let changeSpy: typeof vi.fn
 
     beforeEach(async () => {
-      changeSpy = renderMultiComplete()
+      changeSpy = renderMultiComplete().changeSpy
 
       act(() => screen.getByRole('combobox').click())
       await waitFor(() => expect(screen.getByRole('listbox')).toBeVisible())
@@ -371,5 +374,17 @@ describe('multi complete component', () => {
 
     act(() => screen.getByTestId('wrapper').click())
     expect(screen.getByRole('combobox')).toHaveFocus()
+  })
+
+  it('should not submit form when pressing enter in open popover', async () => {
+    const { formKeyDownSpy } = renderMultiComplete()
+
+    act(() => screen.getByRole('combobox').click())
+    await waitFor(() => expect(screen.getByRole('listbox')).toBeVisible())
+    await act(() =>
+      fireEvent.keyDown(screen.getAllByRole('option').at(0)!, { key: 'Enter' })
+    )
+
+    expect(formKeyDownSpy).not.toHaveBeenCalled()
   })
 })
