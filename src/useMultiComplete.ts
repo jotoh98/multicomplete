@@ -192,6 +192,13 @@ export const useMultiComplete = <
           break
         case 'Enter':
         case 'Space':
+          e.stopPropagation()
+          e.preventDefault()
+
+          if (!isOpen) {
+            onOpenChange?.(true)
+          }
+
           if (activeOptionIndex > -1 && isOpen) {
             onAdd(filteredOptions[activeOptionIndex])
             onOpenChange?.(false)
