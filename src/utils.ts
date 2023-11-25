@@ -4,6 +4,6 @@ export const createSubstringFilter =
     toString(option).toLowerCase().includes(query.toLowerCase())
 
 export const createEqualityFunction =
-  <T, R>(mapper: (option: T) => R) =>
+  <T, R = unknown>(mapper: (option: T) => R) =>
   (a: T, b: T) =>
     mapper(a) === mapper(b)

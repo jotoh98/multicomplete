@@ -17,7 +17,7 @@ import { createEqualityFunction, createSubstringFilter } from '../src'
 
 type Option = (typeof OPTIONS)[number]
 const filter = createSubstringFilter<Option>((v) => v.label)
-const isEqual = createEqualityFunction<Option, string>((v) => v.value)
+const isEqual = createEqualityFunction<Option>((v) => v.value)
 
 const renderMultiComplete = (values = OPTIONS.slice(0, 3)) => {
   const changeSpy = vi.fn()
