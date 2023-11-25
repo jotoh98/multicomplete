@@ -1,7 +1,7 @@
 {
   "name": "multicomplete",
   "description": "A headless React hook for creating multiselect autocomplete components.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "author": "jotoh.dev",
   "license": "MIT",
@@ -55,7 +55,7 @@
     "prettier-plugin-tailwindcss": "^0.5.7",
     "size-limit": "^11.0.0",
     "tsup": "^8.0.0",
-    "typescript": "^5.2.2",
+    "typescript": "^5",
     "vitest": "^0.34.6"
   },
   "size-limit": [

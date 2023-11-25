@@ -68,7 +68,7 @@ type Item = {
   name: string
 }
 
-const isEqual = createEqualityFunction<Item, string>(v => v.id)
+const isEqual = createEqualityFunction<Item>(v => v.id)
 // a.k.a. a.id === b.id
 
 const filter = createSubstringFilter<Item>(v => v.name)
