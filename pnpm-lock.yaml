@@ -74,7 +74,7 @@ devDependencies:
     specifier: ^8.0.0
     version: 8.0.0(typescript@5.2.2)
   typescript:
-    specifier: ^5.2.2
+    specifier: ^5
     version: 5.2.2
   vitest:
     specifier: ^0.34.6
