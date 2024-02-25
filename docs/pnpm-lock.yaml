@@ -48,7 +48,7 @@ devDependencies:
     version: 14.1.0(eslint@8.53.0)(typescript@5.2.2)
   multicomplete:
     specifier: ^0.2.1
-    version: 0.2.1(react-dom@18.2.0)(react@18.2.0)
+    version: 0.2.2(react-dom@18.2.0)(react@18.2.0)
   postcss:
     specifier: ^8
     version: 8.4.31
@@ -3970,8 +3970,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /multicomplete@0.2.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-+RKThYPqPzVJrLLEFAk/eByQ2WpXf0HFwk+d/d5At1+15wRn/qTIvKabh1+lVBbh3PQRAjUQyA7FvcojhFoAlA==}
+  /multicomplete@0.2.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-9c3FAsddY08mrPCrNKK7OG4RtWT/uKCwP5dgbF0T28lhDnAHoszFjEi4kp28hruNTDpB8bh8QiICloIHSR2QNA==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
