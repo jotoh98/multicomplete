@@ -25,7 +25,7 @@ dependencies:
     version: 18.2.0(react@18.2.0)
   zustand:
     specifier: ^4.4.6
-    version: 4.5.2(@types/react@18.2.61)(react@18.2.0)
+    version: 4.5.2(@types/react@18.2.62)(react@18.2.0)
 
 devDependencies:
   '@types/node':
@@ -33,7 +33,7 @@ devDependencies:
     version: 20.11.24
   '@types/react':
     specifier: ^18
-    version: 18.2.61
+    version: 18.2.62
   '@types/react-dom':
     specifier: ^18
     version: 18.2.19
@@ -300,7 +300,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.10
-      '@types/react': 18.2.61
+      '@types/react': 18.2.62
       react: 18.2.0
     dev: false
 
@@ -681,11 +681,11 @@ packages:
   /@types/react-dom@18.2.19:
     resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
     dependencies:
-      '@types/react': 18.2.61
+      '@types/react': 18.2.62
     dev: true
 
-  /@types/react@18.2.61:
-    resolution: {integrity: sha512-NURTN0qNnJa7O/k4XUkEW2yfygA+NxS0V5h1+kp9jPwhzZy95q3ADoGMP0+JypMhrZBTTgjKAUlTctde1zzeQA==}
+  /@types/react@18.2.62:
+    resolution: {integrity: sha512-l3f57BbaEKP0xcFzf+5qRG8/PXykZiuVM6eEoPtqBPCp6dxO3HhDkLIgIyXPhPKNAeXn3KO2pEaNgzaEo/asaw==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
@@ -5748,7 +5748,7 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
-  /zustand@4.5.2(@types/react@18.2.61)(react@18.2.0):
+  /zustand@4.5.2(@types/react@18.2.62)(react@18.2.0):
     resolution: {integrity: sha512-2cN1tPkDVkwCy5ickKrI7vijSjPksFRfqS6237NzT0vqSsztTNnQdHw9mmN7uBdk3gceVXU0a+21jFzFzAc9+g==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -5763,7 +5763,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.61
+      '@types/react': 18.2.62
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
